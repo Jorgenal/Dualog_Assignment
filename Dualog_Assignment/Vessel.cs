@@ -8,7 +8,7 @@ class Vessel : Speed
     protected int yearBuilt;
     protected int MaxAge = 20;
 
-    // Default Constructor
+    // Default Constructor, assigns variables to prevent non-nullable field warning
     public Vessel() { this.name = "Default"; this.yearBuilt = 0; this.knots = 0; }
 
     // Constructor
