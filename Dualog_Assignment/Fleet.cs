@@ -4,7 +4,7 @@ class Ferry : Vessel
 {
     private int passengers = 20;
 
-    // Call Vessels Constructor class
+    // Call Vessels Constructor
     public Ferry(string Name, int yearBuilt, int knots) : base(Name, yearBuilt, knots) { }
 
     public int GetPassengers()
@@ -32,7 +32,7 @@ class Tugboat : Vessel
 {
     private string maxForce = "15F";
 
-    // Call Vessels Constructor class
+    // Call Vessels Constructor
     public Tugboat(string Name, int yearBuilt, int knots) : base(Name, yearBuilt, knots) { }
 
     public string GetMaxForce() 
@@ -42,7 +42,7 @@ class Tugboat : Vessel
 
     public int SetMaxForce(string maxforce)
     {
-        this.maxForce= maxforce;
+        this.maxForce = maxforce;
 
         return 1;
     }
@@ -60,7 +60,7 @@ class Submarine : Vessel
 {
     private string maxDepth = "20ft";
 
-    // Call Vessels Constructor class
+    // Call Vessels Constructor
     public Submarine(string Name, int yearBuilt, int knots) : base(Name, yearBuilt, knots) { }
 
     public string GetMaxDepth()
@@ -70,7 +70,7 @@ class Submarine : Vessel
 
     public int SetMaxDepth(string maxdepth)
     {
-        this.maxDepth= maxdepth;
+        this.maxDepth = maxdepth;
 
         return 1;
     }
