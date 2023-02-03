@@ -6,6 +6,20 @@ class Ferry : Vessel
 
     public Ferry(string Name, int yearBuilt, int Passengers)
     {
+
+        // Better way to handle this? Stops terminal error of non-nullable field
+        if (Name == null)
+        {
+            this.name = "invalid";
+            this.yearBuilt = 0;
+            throw new OldShipException("Invalid name/year built");
+        }
+
+        if (2023 - yearBuilt > 20)
+        {
+            throw new OldShipException("Ship Too Old For Fleet Manager");
+        }
+
         this.name = Name;
         this.yearBuilt = yearBuilt;
         this.passengers = Passengers;
@@ -31,6 +45,19 @@ class Tugboat : Vessel
 
     public Tugboat(string Name, int yearBuilt, string maxforce)
     {
+        // Better way to handle this? Stops terminal error of non-nullable field
+        if (Name == null)
+        {
+            this.name = "invalid";
+            this.yearBuilt = 0;
+            throw new OldShipException("Invalid name/year built");
+        }
+
+        if (2023 - yearBuilt > 20)
+        {
+            throw new OldShipException("Ship Too Old For Fleet Manager");
+        }
+
         this.name = Name;
         this.yearBuilt = yearBuilt;
         this.maxForce= maxforce;
@@ -56,6 +83,19 @@ class Submarine : Vessel
 
     public Submarine(string Name, int yearBuilt, string maxdepth)
     {
+        // Better way to handle this? Stops terminal error of non-nullable field
+        if (Name == null)
+        {
+            this.name = "invalid";
+            this.yearBuilt = 0;
+            throw new OldShipException("Invalid name/year built");
+        }
+
+        if (2023 - yearBuilt > 20)
+        {
+            throw new OldShipException("Ship Too Old For Fleet Manager");
+        }
+
         this.name = Name;
         this.yearBuilt = yearBuilt;
         this.maxDepth= maxdepth;
