@@ -19,7 +19,7 @@ class Vessel : Speed
             this.name = "invalid";
             this.yearBuilt = 0;
             this.knots = 0;
-            throw new OldShipException("Invalid name/year built");
+            throw new OldShipException("Invalid name");
         }
 
         if (2023-yearBuilt > 20)

@@ -1,5 +1,7 @@
-﻿using System.Globalization;
+﻿using System.Collections.ObjectModel;
+using System.Globalization;
 
+// Checking for invalid name and too old boat
 try
 {
     Vessel ves = new Vessel("Jotunheim", 1888, 50);
@@ -7,38 +9,37 @@ try
 catch (OldShipException e)
 {
     Console.WriteLine("Error: " + e.Message + "\n");
-    
 }
 
-Vessel vessel = new Vessel("Jotunheim", 2004, 60);
-vessel.GetVesselInfo();
-//Console.WriteLine(vessel.ToString());
-//Console.WriteLine(vessel.GetYearBuilt());
-//Console.WriteLine(vessel.GetName());
+try
+{
+    Vessel ves = new Vessel(null, 2020, 500);
+}
+catch (OldShipException e)
+{
+    Console.WriteLine("Error: " + e.Message + "\n");
+}
 
-Console.WriteLine();
 
-Ferry ferry = new Ferry("Foodo", 2015, 30, 20);
-ferry.GetVesselInfo();
-//Console.WriteLine(ferry.ToString());
-//Console.WriteLine(ferry.GetYearBuilt());
-//Console.WriteLine(ferry.GetName());
 
-Console.WriteLine();
+Ferry ferry = new Ferry("Ferrmeister", 2015, 30, 10);
+Tugboat tugboat = new Tugboat("Tuggmeister", 2016, 40, "15F");
+Submarine submarine = new Submarine("Subbmeister", 2017, 40, "15ft");
 
-Tugboat tugboat = new Tugboat("Tuggy", 2016, 40, "4000F");
-tugboat.GetVesselInfo();
-//Console.WriteLine(tugboat.ToString());
-//Console.WriteLine(tugboat.GetYearBuilt());
-//Console.WriteLine(tugboat.GetName());
-
-Console.WriteLine();
-
-Submarine submarine = new Submarine("Subby", 2018, 50, "40m");
-submarine.GetVesselInfo();
+var fleet = new Collection<Vessel>();
+fleet.Add(ferry);
+fleet.Add(tugboat);
+fleet.Add(submarine);
 NumberFormatInfo current = NumberFormatInfo.CurrentInfo;
-Console.WriteLine(submarine.ToString("MS", current));
-//Console.WriteLine(submarine.ToString());
-//Console.WriteLine(submarine.GetYearBuilt());
-//Console.WriteLine(submarine.GetName());
+
+foreach (Vessel v in fleet)
+{
+    v.GetVesselInfo();
+    Console.WriteLine(v.ToString("MS", current));
+    Console.WriteLine();
+}
+
+
+
+
 

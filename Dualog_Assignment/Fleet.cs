@@ -13,7 +13,7 @@ class Ferry : Vessel
             this.name = "invalid";
             this.yearBuilt = 0;
             this.knots = knots;
-            throw new OldShipException("Invalid name/year built");
+            throw new OldShipException("Invalid name");
         }
 
         if (2023 - yearBuilt > 20)
@@ -53,7 +53,7 @@ class Tugboat : Vessel
             this.name = "invalid";
             this.yearBuilt = 0;
             this.knots = knots;
-            throw new OldShipException("Invalid name/year built");
+            throw new OldShipException("Invalid name");
         }
 
         if (2023 - yearBuilt > 20)
@@ -93,7 +93,7 @@ class Submarine : Vessel
             this.name = "invalid";
             this.yearBuilt = 0;
             this.maxDepth = maxdepth;
-            throw new OldShipException("Invalid name/year built");
+            throw new OldShipException("Invalid name");
         }
 
         if (2023 - yearBuilt > 20)
