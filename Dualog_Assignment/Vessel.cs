@@ -3,7 +3,7 @@
 
 class Vessel : Speed
 {
-    // Use protected to allow derived classes to set them in constructor
+    // Use protected to allow derived classes to set them in their own constructor
     protected string name;
     protected int yearBuilt;
 

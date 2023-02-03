@@ -12,7 +12,7 @@ class Ferry : Vessel
         {
             this.name = "invalid";
             this.yearBuilt = 0;
-            this.knots = knots;
+            this.knots = 0;
             throw new OldShipException("Invalid name");
         }
 
@@ -24,7 +24,7 @@ class Ferry : Vessel
         this.name = Name;
         this.yearBuilt = yearBuilt;
         this.passengers = Passengers;
-        this.knots+= knots;
+        this.knots = knots;
     }
 
     public int GetPassengers()
@@ -52,7 +52,7 @@ class Tugboat : Vessel
         {
             this.name = "invalid";
             this.yearBuilt = 0;
-            this.knots = knots;
+            this.knots = 0;
             throw new OldShipException("Invalid name");
         }
 
@@ -93,6 +93,7 @@ class Submarine : Vessel
             this.name = "invalid";
             this.yearBuilt = 0;
             this.maxDepth = maxdepth;
+            this.knots = 0;
             throw new OldShipException("Invalid name");
         }
 
