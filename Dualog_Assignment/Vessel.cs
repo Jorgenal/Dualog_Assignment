@@ -5,27 +5,24 @@ class Vessel
 {
     // Use protected to allow derived classes to set them in constructor
     protected string name;
-    protected string yearBuilt;
+    protected int yearBuilt;
 
     // Default Constructor
-    public Vessel() { }
+    public Vessel() { this.name = "Default"; this.yearBuilt = 0; }
 
     // Constructor
-    public Vessel(string Name, string yearBuilt)
+    public Vessel(string Name, int yearBuilt)
     {
-        // Need some better and proper handling here, only init protected fields to stop compiler error atm 
-        if (Name == null || yearBuilt == null)
+        // Better way to handle this? Stops terminal error of non-nullable field
+        if (Name == null)
         {
             this.name = "invalid";
-            this.yearBuilt = "invalid";
+            this.yearBuilt = 0;
             throw new OldShipException("Invalid name/year built");
         }
 
-        int year = int.Parse(yearBuilt);
-        if (2023-year > 20)
+        if (2023-yearBuilt > 20)
         {
-            this.name = "invalid";
-            this.yearBuilt = "invalid";
             throw new OldShipException("Ship Too Old For Fleet Manager");
         }
 
@@ -37,7 +34,7 @@ class Vessel
     { 
         return name; 
     }
-    public string GetYearBuilt()
+    public int GetYearBuilt()
     {
         return yearBuilt;
     }

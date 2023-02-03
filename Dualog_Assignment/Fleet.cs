@@ -2,16 +2,16 @@
 
 class Ferry : Vessel
 {
-    private string passengers;
+    private int passengers;
 
-    public Ferry(string Name, string yearBuilt, string Passengers)
+    public Ferry(string Name, int yearBuilt, int Passengers)
     {
         this.name = Name;
         this.yearBuilt = yearBuilt;
         this.passengers = Passengers;
     }
 
-    public string GetPassengers()
+    public int GetPassengers()
     {
         return this.passengers;
     }
@@ -29,7 +29,7 @@ class Tugboat : Vessel
 {
     private string maxForce;
 
-    public Tugboat(string Name, string yearBuilt, string maxforce)
+    public Tugboat(string Name, int yearBuilt, string maxforce)
     {
         this.name = Name;
         this.yearBuilt = yearBuilt;
@@ -54,7 +54,7 @@ class Submarine : Vessel
 {
     private string maxDepth;
 
-    public Submarine(string Name, string yearBuilt, string maxdepth)
+    public Submarine(string Name, int yearBuilt, string maxdepth)
     {
         this.name = Name;
         this.yearBuilt = yearBuilt;
