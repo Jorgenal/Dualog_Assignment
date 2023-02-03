@@ -4,7 +4,7 @@ class Ferry : Vessel
 {
     private int passengers;
 
-    public Ferry(string Name, int yearBuilt, int Passengers)
+    public Ferry(string Name, int yearBuilt, int knots, int Passengers)
     {
 
         // Better way to handle this? Stops terminal error of non-nullable field
@@ -12,6 +12,7 @@ class Ferry : Vessel
         {
             this.name = "invalid";
             this.yearBuilt = 0;
+            this.knots = knots;
             throw new OldShipException("Invalid name/year built");
         }
 
@@ -23,6 +24,7 @@ class Ferry : Vessel
         this.name = Name;
         this.yearBuilt = yearBuilt;
         this.passengers = Passengers;
+        this.knots+= knots;
     }
 
     public int GetPassengers()
@@ -43,13 +45,14 @@ class Tugboat : Vessel
 {
     private string maxForce;
 
-    public Tugboat(string Name, int yearBuilt, string maxforce)
+    public Tugboat(string Name, int yearBuilt, int knots, string maxforce)
     {
         // Better way to handle this? Stops terminal error of non-nullable field
         if (Name == null)
         {
             this.name = "invalid";
             this.yearBuilt = 0;
+            this.knots = knots;
             throw new OldShipException("Invalid name/year built");
         }
 
@@ -61,6 +64,7 @@ class Tugboat : Vessel
         this.name = Name;
         this.yearBuilt = yearBuilt;
         this.maxForce= maxforce;
+        this.knots = knots;
     }
 
     public string GetMaxForce() 
@@ -81,13 +85,14 @@ class Submarine : Vessel
 {
     private string maxDepth;
 
-    public Submarine(string Name, int yearBuilt, string maxdepth)
+    public Submarine(string Name, int yearBuilt, int knots, string maxdepth)
     {
         // Better way to handle this? Stops terminal error of non-nullable field
         if (Name == null)
         {
             this.name = "invalid";
             this.yearBuilt = 0;
+            this.maxDepth = maxdepth;
             throw new OldShipException("Invalid name/year built");
         }
 
@@ -99,6 +104,7 @@ class Submarine : Vessel
         this.name = Name;
         this.yearBuilt = yearBuilt;
         this.maxDepth= maxdepth;
+        this.knots = knots;
     }
 
     public string GetMaxDepth()
