@@ -11,10 +11,11 @@ public class Speed : IFormattable
 
     public string ToString(string? format, IFormatProvider? formatProvider)
     {
-        if (format == null) { format = string.Empty; }
+        if (format == null) { format = "G"; }
 
         switch (format.ToUpperInvariant())
         {
+            case "G":   // Docs state it has to support "G", the general format specifier
             case "KN":
                 return this.knots.ToString() + " kt";
             case "MS":
