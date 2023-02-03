@@ -22,9 +22,9 @@ catch (OldShipException e)
 
 
 // Creating a collection and iterating over it
-Ferry ferry = new Ferry("Ferrmeister", 2015, 30, 10);
-Tugboat tugboat = new Tugboat("Tuggmeister", 2016, 40, "15F");
-Submarine submarine = new Submarine("Subbmeister", 2017, 40, "15ft");
+Ferry ferry = new Ferry("Ferrmeister", 2015, 30);
+Tugboat tugboat = new Tugboat("Tuggmeister", 2016, 40);
+Submarine submarine = new Submarine("Subbmeister", 2017, 40);
 
 var fleet = new Collection<Vessel>();
 fleet.Add(ferry);

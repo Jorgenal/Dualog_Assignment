@@ -2,34 +2,21 @@
 
 class Ferry : Vessel
 {
-    private int passengers;
+    private int passengers = 20;
 
-    public Ferry(string Name, int yearBuilt, int knots, int Passengers)
-    {
-
-        // Better way to handle this? Stops terminal error of non-nullable field
-        if (Name == null)
-        {
-            this.name = "invalid";
-            this.yearBuilt = 0;
-            this.knots = 0;
-            throw new OldShipException("Invalid name");
-        }
-
-        if (2023 - yearBuilt > 20)
-        {
-            throw new OldShipException("Ship Too Old For Fleet Manager");
-        }
-
-        this.name = Name;
-        this.yearBuilt = yearBuilt;
-        this.passengers = Passengers;
-        this.knots = knots;
-    }
+    // Call Vessels Constructor class
+    public Ferry(string Name, int yearBuilt, int knots) : base(Name, yearBuilt, knots) { }
 
     public int GetPassengers()
     {
         return this.passengers;
+    }
+
+    public int SetPassengers(int passengers)
+    {
+        this.passengers = passengers;
+
+        return 1;
     }
 
     public override void GetVesselInfo()
@@ -43,33 +30,21 @@ class Ferry : Vessel
 
 class Tugboat : Vessel
 {
-    private string maxForce;
+    private string maxForce = "15F";
 
-    public Tugboat(string Name, int yearBuilt, int knots, string maxforce)
-    {
-        // Better way to handle this? Stops terminal error of non-nullable field
-        if (Name == null)
-        {
-            this.name = "invalid";
-            this.yearBuilt = 0;
-            this.knots = 0;
-            throw new OldShipException("Invalid name");
-        }
-
-        if (2023 - yearBuilt > 20)
-        {
-            throw new OldShipException("Ship Too Old For Fleet Manager");
-        }
-
-        this.name = Name;
-        this.yearBuilt = yearBuilt;
-        this.maxForce= maxforce;
-        this.knots = knots;
-    }
+    // Call Vessels Constructor class
+    public Tugboat(string Name, int yearBuilt, int knots) : base(Name, yearBuilt, knots) { }
 
     public string GetMaxForce() 
     {
         return this.maxForce;
+    }
+
+    public int SetMaxForce(string maxforce)
+    {
+        this.maxForce= maxforce;
+
+        return 1;
     }
 
     public override void GetVesselInfo()
@@ -83,34 +58,21 @@ class Tugboat : Vessel
 
 class Submarine : Vessel
 {
-    private string maxDepth;
+    private string maxDepth = "20ft";
 
-    public Submarine(string Name, int yearBuilt, int knots, string maxdepth)
-    {
-        // Better way to handle this? Stops terminal error of non-nullable field
-        if (Name == null)
-        {
-            this.name = "invalid";
-            this.yearBuilt = 0;
-            this.maxDepth = maxdepth;
-            this.knots = 0;
-            throw new OldShipException("Invalid name");
-        }
-
-        if (2023 - yearBuilt > 20)
-        {
-            throw new OldShipException("Ship Too Old For Fleet Manager");
-        }
-
-        this.name = Name;
-        this.yearBuilt = yearBuilt;
-        this.maxDepth= maxdepth;
-        this.knots = knots;
-    }
+    // Call Vessels Constructor class
+    public Submarine(string Name, int yearBuilt, int knots) : base(Name, yearBuilt, knots) { }
 
     public string GetMaxDepth()
     {
         return this.maxDepth;
+    }
+
+    public int SetMaxDepth(string maxdepth)
+    {
+        this.maxDepth= maxdepth;
+
+        return 1;
     }
 
     public override void GetVesselInfo()

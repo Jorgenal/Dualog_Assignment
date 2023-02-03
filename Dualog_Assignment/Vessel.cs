@@ -17,9 +17,6 @@ class Vessel : Speed
         // Better way to handle this? Stops terminal error of non-nullable field
         if (Name == null)
         {
-            //this.name = "invalid";
-            //this.yearBuilt = 0;
-            //this.knots = 0;
             throw new OldShipException("Invalid name");
         }
 
