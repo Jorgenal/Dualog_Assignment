@@ -1,5 +1,6 @@
 # Task 1 Remarks
-I feel the current implementation of fleet classes could be handled better as the GetVesselInfo class has to be overridden for each class.
+I feel the current implementation of fleet classes could be handled better as the GetVesselInfo class has to be overridden for each class,
+along with constructors. 
 
 Decided to change yearBuilt to integer, no need to handle string conversion. 
 

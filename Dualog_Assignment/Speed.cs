@@ -21,7 +21,7 @@ public class Speed : IFormattable
             case "MS":
                     return (knots / 1.9438444924406).ToString() + " m/s";
             default:
-                throw new FormatException(string.Format("The {0} format string is not supported.", format));
+                throw new FormatException($"The {format} format string is not supported.");
         }
     }
 }

@@ -6,6 +6,7 @@ class Vessel : Speed
     // Use protected to allow derived classes to set them in their own constructor
     protected string name;
     protected int yearBuilt;
+    protected int MaxAge = 20;
 
     // Default Constructor
     public Vessel() { this.name = "Default"; this.yearBuilt = 0; this.knots = 0; }
@@ -16,13 +17,13 @@ class Vessel : Speed
         // Better way to handle this? Stops terminal error of non-nullable field
         if (Name == null)
         {
-            this.name = "invalid";
-            this.yearBuilt = 0;
-            this.knots = 0;
+            //this.name = "invalid";
+            //this.yearBuilt = 0;
+            //this.knots = 0;
             throw new OldShipException("Invalid name");
         }
 
-        if (2023-yearBuilt > 20)
+        if (DateTime.Now.Year-yearBuilt > this.MaxAge)
         {
             throw new OldShipException("Ship Too Old For Fleet Manager");
         }
