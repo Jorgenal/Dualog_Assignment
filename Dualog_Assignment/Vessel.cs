@@ -17,7 +17,7 @@ class Vessel : Speed
         // Better way to handle this? Stops terminal error of non-nullable field
         if (Name == null)
         {
-            throw new OldShipException("Invalid name");
+            throw new ArgumentNullException("Invalid name: null");
         }
 
         if (DateTime.Now.Year-yearBuilt > this.MaxAge)

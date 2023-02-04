@@ -21,7 +21,7 @@ namespace UnitTests
         [Fact]
         public void Throw_Exception_On_Null_Name()
         {
-            Assert.Throws<OldShipException>(() => new Vessel(null, 2015, 40));
+            Assert.Throws<ArgumentNullException>(() => new Vessel(null, 2015, 40));
         }
 
         [Fact]
