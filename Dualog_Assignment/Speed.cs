@@ -9,6 +9,18 @@ public class Speed : IFormattable
         this.knots = knots;
 	}
 
+    public int GetKnots()
+    {
+        return knots;
+    }
+
+    public int SetKnots(int knots)
+    {
+        this.knots = knots;
+
+        return 1;
+    }
+
     public string ToString(string? format, IFormatProvider? formatProvider)
     {
         if (format == null) { format = "G"; }
@@ -17,7 +29,7 @@ public class Speed : IFormattable
         {
             case "G":   // Docs state it has to support "G", the general format specifier
             case "KN":
-                return this.knots.ToString() + " kt";
+                return this.knots.ToString() + " kn";
             case "MS":
                     return (knots / 1.9438444924406).ToString() + " m/s";
             default:

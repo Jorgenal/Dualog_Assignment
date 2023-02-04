@@ -25,6 +25,11 @@ class Vessel : Speed
             throw new OldShipException("Ship Too Old For Fleet Manager");
         }
 
+        if(knots > 300 || knots < 0)
+        {
+            throw new ArgumentOutOfRangeException("Invalid speed"); // Can't be lower than 0, no unrealistic speed
+        }
+
         this.name = Name;
         this.yearBuilt = yearBuilt;
         this.knots = knots;
@@ -37,6 +42,20 @@ class Vessel : Speed
     public int GetYearBuilt()
     {
         return yearBuilt;
+    }
+
+    public int SetName(string name)
+    {
+        this.name = name;
+
+        return 1;
+    }
+
+    public int SetYearBuilt(int yearBuilt)
+    {
+        this.yearBuilt = yearBuilt;
+
+        return 1;
     }
 
     // Virtual to allow derived classes to override

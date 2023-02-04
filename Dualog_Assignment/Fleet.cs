@@ -14,6 +14,11 @@ class Ferry : Vessel
 
     public int SetPassengers(int passengers)
     {
+        if(passengers < 0 || passengers > 10000)
+        {
+            throw new ArgumentOutOfRangeException("Invalid amount of passengers"); // Not lower than 0, curretn max cruise is 9000
+        }
+
         this.passengers = passengers;
 
         return 1;
@@ -30,18 +35,23 @@ class Ferry : Vessel
 
 class Tugboat : Vessel
 {
-    private string maxForce = "15F";
+    private int maxForce = 15;
 
     // Call Vessels Constructor
     public Tugboat(string Name, int yearBuilt, int knots) : base(Name, yearBuilt, knots) { }
 
-    public string GetMaxForce() 
+    public int GetMaxForce() 
     {
         return this.maxForce;
     }
 
-    public int SetMaxForce(string maxforce)
+    public int SetMaxForce(int maxforce)
     {
+        if (maxforce < 0 || maxforce > 5000) // less than 0 invalid, max is 4680kN, or 477 tonnes-force bollard pull
+        {
+            throw new ArgumentOutOfRangeException("Invalid force");
+        }
+
         this.maxForce = maxforce;
 
         return 1;
@@ -58,18 +68,23 @@ class Tugboat : Vessel
 
 class Submarine : Vessel
 {
-    private string maxDepth = "20ft";
+    private int maxDepth = 20;
 
     // Call Vessels Constructor
     public Submarine(string Name, int yearBuilt, int knots) : base(Name, yearBuilt, knots) { }
 
-    public string GetMaxDepth()
+    public int GetMaxDepth()
     {
         return this.maxDepth;
     }
 
-    public int SetMaxDepth(string maxdepth)
+    public int SetMaxDepth(int maxdepth)
     {
+
+        if (maxdepth < 0 || maxdepth > 5000) // less than 0 invalid, max is 4265ft (1300 meters)
+        {
+            throw new ArgumentOutOfRangeException("Invalid Depth");
+        }
         this.maxDepth = maxdepth;
 
         return 1;
