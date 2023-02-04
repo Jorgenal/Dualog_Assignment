@@ -14,11 +14,9 @@ public class Speed : IFormattable
         return knots;
     }
 
-    public int SetKnots(int knots)
+    public void SetKnots(int knots)
     {
         this.knots = knots;
-
-        return 1;
     }
 
     public string ToString(string? format, IFormatProvider? formatProvider)

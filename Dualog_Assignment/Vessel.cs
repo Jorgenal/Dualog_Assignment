@@ -44,18 +44,14 @@ class Vessel : Speed
         return yearBuilt;
     }
 
-    public int SetName(string name)
+    public void SetName(string name)
     {
         this.name = name;
-
-        return 1;
     }
 
-    public int SetYearBuilt(int yearBuilt)
+    public void SetYearBuilt(int yearBuilt)
     {
         this.yearBuilt = yearBuilt;
-
-        return 1;
     }
 
     // Virtual to allow derived classes to override

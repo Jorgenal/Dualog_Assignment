@@ -12,7 +12,7 @@ class Ferry : Vessel
         return this.passengers;
     }
 
-    public int SetPassengers(int passengers)
+    public void SetPassengers(int passengers)
     {
         if(passengers < 0 || passengers > 10000)
         {
@@ -20,8 +20,6 @@ class Ferry : Vessel
         }
 
         this.passengers = passengers;
-
-        return 1;
     }
 
     public override void GetVesselInfo()
@@ -45,7 +43,7 @@ class Tugboat : Vessel
         return this.maxForce;
     }
 
-    public int SetMaxForce(int maxforce)
+    public void SetMaxForce(int maxforce)
     {
         if (maxforce < 0 || maxforce > 5000) // less than 0 invalid, max is 4680kN, or 477 tonnes-force bollard pull
         {
@@ -53,8 +51,6 @@ class Tugboat : Vessel
         }
 
         this.maxForce = maxforce;
-
-        return 1;
     }
 
     public override void GetVesselInfo()
@@ -78,16 +74,15 @@ class Submarine : Vessel
         return this.maxDepth;
     }
 
-    public int SetMaxDepth(int maxdepth)
+    public void SetMaxDepth(int maxdepth)
     {
 
         if (maxdepth < 0 || maxdepth > 5000) // less than 0 invalid, max is 4265ft (1300 meters)
         {
             throw new ArgumentOutOfRangeException("Invalid Depth");
         }
-        this.maxDepth = maxdepth;
 
-        return 1;
+        this.maxDepth = maxdepth;
     }
 
     public override void GetVesselInfo()
