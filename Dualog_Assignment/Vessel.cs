@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Xml.Linq;
 
 
 class Vessel : Speed
@@ -14,20 +15,27 @@ class Vessel : Speed
     // Constructor
     public Vessel(string Name, int yearBuilt, int knots)
     {
-        // Better way to handle this? Stops terminal error of non-nullable field
         if (Name == null)
         {
             throw new ArgumentNullException("Invalid name: null");
         }
 
+        // Check current year against max age, covers negative input
         if (DateTime.Now.Year-yearBuilt > this.MaxAge)
         {
             throw new OldShipException("Ship Too Old For Fleet Manager");
         }
 
-        if(knots > 300 || knots < 0)
+        // Check if input is higher than current year
+        if(DateTime.Now.Year < yearBuilt)
         {
-            throw new ArgumentOutOfRangeException("Invalid speed"); // Can't be lower than 0, no unrealistic speed
+            throw new ArgumentOutOfRangeException("Invalid build year, higher than current year");
+        }
+
+        // Can't be lower than 0, 300 might be a unrealistic upper bound
+        if (knots > 300 || knots < 0)
+        {
+            throw new ArgumentOutOfRangeException("Invalid speed"); 
         }
 
         this.name = Name;
@@ -39,18 +47,35 @@ class Vessel : Speed
     { 
         return name; 
     }
+    public void SetName(string name)
+    {
+        if (name == null)
+        {
+            throw new ArgumentNullException("Invalid name: null");
+        }
+
+        this.name = name;
+    }
+
     public int GetYearBuilt()
     {
         return yearBuilt;
     }
 
-    public void SetName(string name)
-    {
-        this.name = name;
-    }
-
     public void SetYearBuilt(int yearBuilt)
     {
+        // Check if input is higher than current year
+        if (DateTime.Now.Year < yearBuilt)
+        {
+            throw new ArgumentOutOfRangeException("Invalid build year, higher than current year");
+        }
+
+        // Check if input is higher than current year
+        if (DateTime.Now.Year < yearBuilt)
+        {
+            throw new ArgumentOutOfRangeException("Invalid build year, higher than current year");
+        }
+
         this.yearBuilt = yearBuilt;
     }
 
