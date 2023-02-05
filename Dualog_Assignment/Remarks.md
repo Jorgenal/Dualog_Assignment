@@ -31,7 +31,7 @@ The unit tests should cover almost every single part of the code. A few parts mi
 Decided to sort them based on classes they cover. Mostly troubled by naming convention. 
 
 
-# Potential Criticsim
+# Potential criticism
 I feel like I might have overengineered the task. I implemented a lot of Set methods which probably aren't needed in this context.
 This goes for the fleet classes as well. Only Ferry is described to have a public property, meaning it should have Set and 
 Get method (if I understood property vs field correctly),whereas Tugboat and Ferry should have private fields. 
