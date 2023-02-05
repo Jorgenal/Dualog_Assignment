@@ -43,8 +43,9 @@ fleet.Add(submarine);
 fleet.Add(ferry_2);
 fleet.Add(tugboat_2);
 fleet.Add(submarine_2);
-NumberFormatInfo current = NumberFormatInfo.CurrentInfo;
+NumberFormatInfo current = NumberFormatInfo.CurrentInfo;    // Needed for IFormattable call
 
+// printing ToString and various others methods to check they are working
 foreach (Vessel v in fleet)
 {
     Console.WriteLine(v.ToString());
