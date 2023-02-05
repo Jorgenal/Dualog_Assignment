@@ -15,7 +15,7 @@ try
 {
     Vessel ves = new Vessel(null, 2020, 500);
 }
-catch (OldShipException e)
+catch (ArgumentNullException e)
 {
     Console.WriteLine("Error: " + e.Message + "\n");
 }
