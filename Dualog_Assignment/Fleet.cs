@@ -2,7 +2,7 @@
 
 class Ferry : Vessel
 {
-    private int passengers = 20;
+    public int passengers = 20;
 
     // Call Vessels Constructor
     public Ferry(string Name, int yearBuilt, int knots) : base(Name, yearBuilt, knots) { }
@@ -14,9 +14,10 @@ class Ferry : Vessel
 
     public void SetPassengers(int passengers)
     {
-        if(passengers < 0 || passengers > 10000)
+        // Not lower than 0, current max cruise is 9000
+        if (passengers < 0 || passengers > 10000)
         {
-            throw new ArgumentOutOfRangeException("Invalid amount of passengers"); // Not lower than 0, curretn max cruise is 9000
+            throw new ArgumentOutOfRangeException("Invalid amount of passengers"); 
         }
 
         this.passengers = passengers;
@@ -45,7 +46,8 @@ class Tugboat : Vessel
 
     public void SetMaxForce(int maxforce)
     {
-        if (maxforce < 0 || maxforce > 5000) // less than 0 invalid, max is 4680kN, or 477 tonnes-force bollard pull
+        // less than 0 invalid, max is 4680kN, or 477 tonnes-force bollard pull
+        if (maxforce < 0 || maxforce > 5000)
         {
             throw new ArgumentOutOfRangeException("Invalid force");
         }
@@ -76,8 +78,8 @@ class Submarine : Vessel
 
     public void SetMaxDepth(int maxdepth)
     {
-
-        if (maxdepth < 0 || maxdepth > 5000) // less than 0 invalid, max is 4265ft (1300 meters)
+        // less than 0 invalid, max is 4265ft (1300 meters)
+        if (maxdepth < 0 || maxdepth > 5000) 
         {
             throw new ArgumentOutOfRangeException("Invalid Depth");
         }
