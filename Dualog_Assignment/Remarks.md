@@ -28,4 +28,14 @@ created and added to a collection. The collection is iterated over and calls the
 to ensure everything works. 
 
 The unit tests should cover almost every single part of the code. A few parts might be missing where the constructor is tested, but not the Set method. 
-Decided to sort them based on classes they cover. Mostly troubled by naming convention.  
+Decided to sort them based on classes they cover. Mostly troubled by naming convention. 
+
+
+# Potential Criticsim
+I feel like I might have overengineered the task. I implemented a lot of Set methods which probably aren't needed in this context.
+This goes for the fleet classes as well. Only Ferry is described to have a public property, meaning it should have Set and 
+Get method (if I understood property vs field correctly),whereas Tugboat and Ferry should have private fields. 
+Therefore the better semantic might be to just override the constructor instead of having Set methods, but this choice has been explained above. 
+
+A lot of the attributes were changed to int to make some parsing easier, but without the various Set methods, it would probably be fine to only handle the input in
+overridden constructors. 
