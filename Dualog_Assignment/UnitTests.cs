@@ -40,6 +40,12 @@ namespace UnitTests
         }
 
         [Fact]
+        public void ArgumentOutOfRabgeException_If_Invalid_Year_Input()
+        {
+            Assert.Throws<ArgumentOutOfRangeException>(() => new Vessel("test_name", DateTime.Now.Year+1, 40));
+        }
+
+        [Fact]
         public void Update_Knots_Vessel()
         {
             Vessel vessel = new Vessel("test_name", 2015, 40);
@@ -49,15 +55,31 @@ namespace UnitTests
         }
 
         [Fact]
-        public void Throw_Invalid_Knots_Range_Upper_Exception()
+        public void Throw_Invalid_Knots_Range_Upper_OnInit_Exception()
         {
             Assert.Throws<ArgumentOutOfRangeException>(() => new Vessel("test_name", 2015, 500));
         }
 
         [Fact]
-        public void Throw_Invalid_Knots_Range_Lower_Exception()
+        public void Throw_Invalid_Knots_Range_Lower_OnInit_Exception()
         {
             Assert.Throws<ArgumentOutOfRangeException>(() => new Vessel("test_name", 2015, -1));
+        }
+
+        [Fact]
+        public void Throw_Invalid_Knots_Range_Upper_Exception()
+        {
+            Vessel vessel = new Vessel("test_name", 2015, 40);
+            
+            Assert.Throws<ArgumentOutOfRangeException>(() => vessel.SetKnots(500));
+        }
+
+        [Fact]
+        public void Throw_Invalid_Knots_Range_Lower_Exception()
+        {
+            Vessel vessel = new Vessel("test_name", 2015, 40);
+
+            Assert.Throws<ArgumentOutOfRangeException>(() => vessel.SetKnots(-1));
         }
 
         [Fact]
